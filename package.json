@@ -2,5 +2,7 @@
   "name": "broke-student",
   "version": "0.0.1",
   "description": "Broke Students Yo",
-  "dependencies": { }
+  "dependencies": {
+    "express": "^4.10.2"
+  }
 }
