@@ -29,9 +29,12 @@ $result = $conn->query($sql);
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        echo "Seller ID: " . $row["Seller_ID"] . " - Class: " . $row["Class_code"] . " - Book: " . 
+        echo $row["Book_name"] . "\n" . $row["Class_code"] . "\n" . 
+        $row["ISBN"] . "\n" . $row["Seller_ID"] . "\n" . $row["State"] . "\n" . 
+        $row["Price"] . "\n" . $row["Location"] . "\n" . $row["Negotiate"] . "<br>";
+        /*echo "Seller ID: " . $row["Seller_ID"] . " - Class: " . $row["Class_code"] . " - Book: " . 
         $row["Book_name"] . " - ISBN: " . $row["ISBN"] . " - State: " . $row["State"] . " - Location: " . 
-        $row["Location"] . " - Price: " . $row["Price"] . " - Negotiable: " . $row["Negotiate"] . "<br>";
+        $row["Location"] . " - Price: " . $row["Price"] . " - Negotiable: " . $row["Negotiate"] . "<br>";*/
     }
 } else {
     echo "0 results";
