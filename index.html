@@ -2,25 +2,37 @@
 <html>
 <head>
 <title>Booksmart</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<script>
+	$(document).ready(function(){
+		$("#search").submit(function(){
+			data = $(this).serialize();
+			$.ajax({
+				type: "POST",
+				dataType: "json",
+				url: "search.php",
+				data: data,
+				success: function(data) {
+					$(".results-box").html(
+						data["json"]
+					);
+					alert("Form submitted successfully.\nReturned json: " + data["json"]);
+				}
+			});
+			return false;
+		});
+	});
+</script>
 <style>
-	h1{
-		display: inline-block;
-		width: 70%;
-	}
 	#header {
     	background: #88DDFF;
-    	top: 0;
-    	width: 90%;
-    	padding: 3pt 4%;
-    	margin: 0 auto;
 	}
-	#search-box{
-		margin:auto;
-	}
-	.catergory {
-		display: inline-block;
-		width: 23%;
-		margin: auto;
+	#search-box button{
+		width: 20%;
 	}
 	.catergory input{
 		display: block;
@@ -30,34 +42,45 @@
 </head>
 
 <body>
-<div id="header">
-	<h1>Booksmart</h1>
+<div class="container">
+<div id="header" class="well well-lg">
+	<h1 class="col-med-8">Booksmart <small>College Sales Solutions</small></h1>
 </div>
 
-<div id="search-box">
-	<h2>Search Catergories:</h2>
-	<form id="search">
-		<div class="catergory">General:
-		<input/> 
+<div id="search-box" class="well">
+	<h2>Search Categories: 	<!--<img src="spacecat.jpg" class="img-circle" alt="Space Cat" width="50" height="30">--></h2>
+	<form action="" id="search">
+		<div class="catergory col-sm-3 well-sm">
+			General:
+			<input name="general" class=""/> 
 		</div>
 		
-		<div class="catergory">ISBN:
-		<input/> 
+		<div class="catergory col-sm-3 well-sm">
+			ISBN:
+			<input name="isbn"/> 
 		</div>
 		
-		<div class="catergory">Class:
-		<input/> 
+		<div class="catergory col-sm-3 well-sm">
+			Class:
+			<input name="class"/> 
 		</div>
 		
-		<div class="catergory">Title:
-		<input/> 
+		<div class="catergory col-sm-3 well-sm">
+			Title:
+			<input name="title"/> 
 		</div>
 	
-	</form>	
+		<button id="search-btn" class="btn btn-primary">
+			<span class="glyphicon glyphicon-search"></span> Search
+		</button>
+		
+	</form>
 </div>
 
 <div id="results-box">
 	<!-- php crap goes here -->
+</div>
+
 </div>
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
