@@ -15,13 +15,13 @@ Rating numeric CHECK (Rating > 0 AND Rating < 6),
 Contact_Info char(50));
 
 INSERT INTO Seller_Information
-VALUES ('Kaitlyn MacIntyre', 3, 'kmac2017@u.northwestern.edu');
+VALUES (1, 'Kaitlyn MacIntyre', 3, 'kmac2017@u.northwestern.edu');
 
 INSERT INTO Seller_Information
-VALUES ('Josh Zaugg', 4, 'joshuazaugg2018@u.northwestern.edu');
+VALUES (2, 'Josh Zaugg', 4, 'joshuazaugg2018@u.northwestern.edu');
 
 INSERT INTO Seller_Information
-VALUES ('Alan Cheng', 5, 'alancheng2018@u.northwestern.edu');
+VALUES (3, 'Alan Cheng', 5, 'alancheng2018@u.northwestern.edu');
 
 INSERT INTO Book_Information
 VALUES (1, 'EECS336', 'Algorithm Design', 9780321295354, 'Good', 'South', 30.00, 'Y');
@@ -35,6 +35,13 @@ VALUES (3, 'MATH230', 'Essential Calculus: Early Transcendentals', 9781133112280
 INSERT INTO Book_Information
 VALUES (1, 'EECS213', "Computer Systems: A Programmer's Perspective", 9780136108047, 'Like New', 'South', 50.00, 'N');
 
+
+#Print whole table
+SELECT *
+FROM Book_Information;
+
+SELECT *
+FROM Seller_Information;
 
 #Find all sales with the inputted book name
 SELECT *
